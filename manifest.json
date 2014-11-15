@@ -1,0 +1,30 @@
+{
+	"name": "あの日のふたり",
+	"version": "1",
+	"manifest_version": 2,
+	
+	"description": "あの日のふたりと今をつなぎます。",
+	
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "あの日のふたり"
+	},
+
+	"permissions": [
+		"tabs",
+		"webNavigation",
+		"notifications",
+		"https://docs.google.com/spreadsheets/d/1Vhri9oSxuVJ0zkoO3-9Im2J0_JDmaazQC8OaCHaDPdY/export?format=tsv&id=1Vhri9oSxuVJ0zkoO3-9Im2J0_JDmaazQC8OaCHaDPdY&gid=0"
+	],
+
+	"content_scripts": [
+		{
+			"matches": ["*://www.google.co.jp/*"],
+			"js": ["jquery-2.1.1.min.js", "lodash.min.js", "contentScript.js"]
+		}
+	],
+
+	"background": {
+		"scripts": ["lodash.min.js", "backgroundPage.js"]
+	}
+}
